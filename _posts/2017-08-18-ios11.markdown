@@ -1,51 +1,72 @@
 ---
 layout:     post
-title:      "iOS浅谈性能优化"
-subtitle:   "iOS Introduction to performance optimization"
-date:       2017-08-17
+title:      "开发者所需要知道的 iOS 11 SDK 新特性"
+subtitle:   "Mover need to know iOS SDK 11 new features"
+date:       2017-08-18
 author:     "Mr.Xi"
-header-img: "img/post-bg-miui-ux.jpg"
+header-img: "img/post-bg-miui6.jpg"
 catalog:    true
 tags:
     - iOS
-    - 性能优化
+    - IOS 11 新特性
 ---
 
-## 如何提升用户性能？
+## 前言
 
->App性能问题是一直存在的，特别是在国内。大部分人并没有意识到性能问题的重要性，没有意识到当用户流失是性能问题导致的。
->众所周知，iPhone上面的应用一直都是以流畅的操作体验著称，但是由于之前开发人员把注意力更多的放在开发功能上面，比较少去考虑性能的问题，这就导致页面之间的切换没有那种很流畅的感觉，内存也居高不下，比较影响应用的用户体验，所以很有必要进行一些优化。
-
-
-###### 尽可能使View不透明
-
-假如最上层的view是不透明的，那直接使用这个view的对应颜色值就可以，但如果是透明的，在计算像素的颜色值时就需要计算它下面的图层，透明的试图越多，计算量就越大，因此也会对图形的性能产生一定的影响，所以可以的话也尽量减少透明图层的数目。
+>作为技术人员，要用一句话来评价今年 Keynote 所展现出来的内容的话，就是小步革新。大的技术方面可以说只有 ARKit 可堪研究，但是我们还是看到了类似跨 app 拖拽，新的 Files 应用这样进一步突破 iOS 原有桎梏的更新 (iMessage 转账什么的就不提了，我大天朝威武，移动支付领域领先世界至少三年)。iOS 11，特别是配合新的硬件，相信会给用户带来不错的体验。
 
 
-###### 显示图片大小尽量跟ImageView大小保持一致
 
-* 如果要在UIImageView中显示一个来自bundle的图片，应保证图片的大小和UIImageView的大小相同。在运行中缩放图片是很耗费资源的。
-* 如果图片是从远端服务加载的你不能控制图片大小，比如在下载前调整到合适大小的话，可以在下载完成后，最好是用**background thread**,缩放一次，然后在UIImageView中使用缩放后的图片。
+### 新增框架
 
-###### 不要在viewWillAppear 中做费时的操作
+新加入 SDK 的大的框架有两个，分别是负责简化和集成机器学习的 Core ML 和用来创建增强现实 (AR) 应用的 ARKit。
 
-*  **viewWillAppear**:在view显示之前被调用，出于效率考虑，在这个方法中不要处理复杂费时的事情；适合在此方法中设置view的显示属性之类的简单事情，比如背景色，字体等。要不然，用户会明显感觉到view显示迟钝。
+#### Core ML
 
-    ![viewWillAppear](img/post-bg-miui-ux.jpg)
+ * 自从 AlphaGo 出现以来，深度学习毫无疑问成了行业热点。而 Google 也在去年就转变 Mobile-first 到 AI-first 的战略。可以说一线的互联网企业几乎都在押宝 AI，目前看来机器学习，特别是深度学习是最有希望的一条道路。
 
-###### NSDateFormatter
+ * 如果你不是很熟悉机器学习的话，我想我可以在这里“僭越”地做一些简介。你可以先把机器学习的模型看作一个黑盒函数，你给定一些输入 (可能是一段文字，或者一张图片)，这个函数会给出特定的输出 (比如这段文字中的人名地名，或者图片中出现的商店名牌等)。一开始这个模型可能非常粗糙，完全不能给出正确的结果，但是你可以使用大量已有的数据和正确的结果，来对模型进行训练，甚至改进。在所使用的模型足够优化，以及训练量足够大的情况下，这个黑盒模型将不仅对训练数据有较高的准确率，也往往能对未知的实际输入给出正确的返回。这样的模型就是一个训练好的可以实际使用的模型。
 
-* [Performance Timing API](https://developer.mozilla.org/en-US/docs/Web/API/Performance/timing) 在 iOS 9 得到回归
-* 关于 HTML5 Video，你现在可以在支持 [Picture in Picture（画中画）](https://developer.apple.com/library/prerelease/ios/documentation/WindowsViews/Conceptual/AdoptingMultitaskingOniPad/QuickStartForPictureInPicture.html#//apple_ref/doc/uid/TP40015145-CH14)的 iPad 设备上提供这项新功能；你的视频甚至可以在 Safari 关闭后继续播放
-* 更好的 ES6 支持：classes（类）, computed properties（可计算属性）, template literals（模版字符串）等
-* Backdrop CSS filters（背景滤镜）
-* CSS @supports 与 CSS Supports JavaScript API 
-* CSS Level4 伪选择器
-* 用于支持分页内容的 CSS Scroll Snapping
-* WKWebView 现在可以访问本地文件了
-* 我们仍然需要等待 Push Notification，camera access，Service Workers 这些现代 web API 的到来
+ * 对机器学习模型的训练是一项很重的工作，Core ML 所扮演的角色更多的是将已经训练好的模型转换为 iOS 可以理解的形式，并且将新的数据“喂给”模型，获取输出。抽象问题和创建模型虽然并不难，但是对模型的改进和训练可以说是值得研究一辈子的事情，这篇文章的读者可能也不太会对此感冒。好在 Apple 提供了一系列的工具用来将各类机器学习模型转换为 Core ML 可以理解的形式。籍此，你就可以轻松地在你的 iOS app 里使用前人训练出的模型。这在以前可能会需要你自己去寻找模型，然后写一些 C++ 的代码来跨平台调用，而且难以利用 iOS 设备的 GPU 性能和 Metal (除非你自己写一些 shader 来进行矩阵运算)。Core ML 将使用模型的门槛降低了很多。
 
-###### 新的操作系统
+ * Core ML 在背后驱动了 iOS 的视觉识别的 Vision 框架和 Foundation 中的语义分析相关 API。普通开发者可以从这些高层的 API 中直接获益，比如人脸图片或者文字识别等。这部分内容在以前版本的 SDK 中也存在，不过在 iOS 11 SDK 中它们被集中到了新的框架中，并将一些更具体和底层的控制开放出来。比如你可以使用 Vision 中的高层接口，但是同时指定底层所使用的模型。这给 iOS 的计算机视觉带来了新的可能。
+
+#### ARKit
+
+Keynote 上的 AR 的演示可以说是唯一的亮点了。iOS SDK 11 中 Apple 给开发者，特别是 AR 相关的开发者带来了一个很棒的礼物，那就是 ARKit。AR 可以说并非什么新技术，像是 Pokémon Go 这样的游戏也验证了 AR 在游戏上的潜力。不过除了 IP 和新鲜感之外，个人认为 Pokémon Go 并没有资格代表 AR 技术的潜力。现场的演示像我们展示了一种可能，粗略看来，ARKit 利用单镜头和陀螺仪，在对平面的识别和虚拟物体的稳定上做得相当出色。几乎可以肯定，那么不做最早，只做最好的 Apple 似乎在这一刻回到了舞台上
+
+ARKit 极大降低了普通开发者玩 AR 的门槛，也是 Apple 现阶段用来抗衡 VR 的选项。可以畅想一下更多类似 Pokémon Go 的 AR 游戏 (结合实境的虚拟宠物什么的大概是最容易想到的) 能在 ARKit 和 SceneKit 的帮助下面世，甚至在 iPad Pro 现有技能上做像是 AR 电影这样能全方位展示的多媒体可能也不再是单纯的梦想。
+
+而与之相应的，是一套并不很复杂的 API。涉及的 View 几乎是作为 SceneKit 的延伸，再加上在真实世界的定为也已经由系统帮助处理，开发者需要做的大抵就是将虚拟物体放在屏幕的合适位置，并让物体之间互动。而利用 Core ML 来对相机内的实际物体进行识别和交互，可以说也让各类特效的相机或者摄影 app 充满了想像空间。
+
+####  Xcode
+
+
+###### 编辑器和编译器
+速度就是生命，而开发者的生命都浪费在了等待编译上。Swift 自问世以来就备受好评，但是缓慢的编译速度，时有时无的语法提示，无法进行重构等工具链上的欠缺成为了最重要的黑点。Xcode 9 中编辑器进行了重写，支持了对 Swift 代码的重构 (虽然还很基础)，将 VCS 提到了更重要的位置，并添加了 GitHub 集成，可以进行同局域网的无线部署和调试。
+
+    [!1496805544643369](http://cc.cocimg.com/api/uploads/20170607/1496805544643369.png)
+
+新的编译系统是使用 Swift 重写的，在进行了一些对比以后，编译速度确实有了不小的提升。虽然不知道是不是由于换成了 Swift 4，不过正在做的公司项目的总编译时间从原来的三分半缩短到了两分钟半左右，可以说相当明显了。
+
+Xcode 9 中的索引系统也使用了新的引擎，据称在大型项目中搜索最高可以达到 50 倍的速度。不过可能由于笔者所参加的项目不够大，这一点体会不太明显。项目里的 Swift 代码依然面临失色的情况。这可能是索引系统和编译系统没有能很好协同造成的，毕竟还是 beta 版本的软件，也许应该多给 Xcode 团队一些时间 (虽然可能到最后也就这样了)。
+
+由于 Swift 4 编译器也提供了 Swift 3 的兼容 (在 Build Setting 中设置 Swift 版本即可)，所以如果没有什么意外的话，我可能会在之后的日常开发中使用 Xcode 9 beta，然后在打包和发布时再切回 Xcode 8 了。毕竟每次完整编译节省一分半钟的时间，还是一件很诱人的事情。
+
+这次的 beta 版本质量出人意料地好，也许是因为这一两年来都是小幅革新式的改良，让 Apple 的软件团队有相对充足的时间进行开发的结果？总之，Xcode 9 beta 现在已经能很好地工作了。
+
+
+
+###### Named Color
+
+这是个人很喜欢的一个变化。现在你可以在 xcassets 里添加颜色，然后在代码或者 IB 中引用这个颜色了。大概是这样的：
+
+    [!zhege](http://cc.cocimg.com/api/uploads/20170607/1496805600730446.png）
+
+像是使用 IB 来构建 UI 的时候，一个很头疼的事情就是设计师表示我们要不换个主题色。你很可能需要到处寻找这个颜色进行替换。但是现在你只需要在 xcassets 里改一下，就能反应到 IB 中的所有地方了。
+        
+### 其他值得注意的变更
+
 
 * 新一代 Apple TV 的 **tvOS**： 没有浏览器，也没有 webview。但是 JavaScript、XHR 和 DOM 可以通过一个叫做 TVML 的标记语言来使用
 * Apple Watch 的 **watchOS**：完全没有任何浏览器和 webview
