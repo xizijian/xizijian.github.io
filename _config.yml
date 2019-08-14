@@ -2,9 +2,9 @@
 title: Mr.Xi Blog
 SEOTitle: 奚子健博客 | Mr.Xi Blog
 header-img: img/home-bg.jpg
-email: 272053955@qq.com
+email: 13134401188@163.com
 description: "关于iOS、JS | 奚子健，Web & Mobile Lover，Front-End Engineer，UX Designer | 这里是 @Mr.Xi奚子健 的个人博客，与你一起发现更大的世界。"
-keyword: "奚子健, Mr.Xi奚子健, 奚子健的博客, Mr.Xi Blog, 博客, 个人网站, 互联网, IOS,刘洋,XiYang,刘洋的男朋友"
+keyword: "奚子健, Mr.Xi奚子健, 奚子健的博客, Mr.Xi Blog, 博客, 个人网站, 互联网, IOS,web前端"
 url: "http://xizijian.cn"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
 
@@ -56,7 +56,7 @@ netease_comment: false
 
 
 # Analytics settings
-# Baidu Analytics 
+# Baidu Analytics
 # ba_track_id: [your track id]
 
 # Google Analytics
