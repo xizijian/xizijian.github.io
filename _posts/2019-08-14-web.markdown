@@ -2,9 +2,9 @@
 layout:     post
 title:      "前端面试题整理"
 subtitle:   "Front end test finishing"
-date:       2017-08-18
+date:       2019-08-14
 author:     "Mr.Xi"
-header-img: "img/post-bg-miui6.jpg"
+header-img: "img/post-bg-universe.jpg"
 catalog:    true
 tags:
     - Web
@@ -18,7 +18,7 @@ tags:
 
 ### Primary interview questions
 
-##### HTML和XHTML的区别是什么？
+##### 1.HTML和XHTML的区别是什么？
  * 元素的嵌套
  在HTML中，某些元素可以彼此不正确的嵌套。在XTHML中，所有的元素必须正确地嵌套。
  * 文档内根元素差异
@@ -27,7 +27,7 @@ tags:
  在HTML中允许一些不规范的写法，但是在XHTML中是不可以的。
  * 总结：XHTML
 
-##### 对 WEB 标准以及 W3C 的理解与认识
+##### 2.对 WEB 标准以及 W3C 的理解与认识
  web标准简单来说可以分为结构、表现和行为。web 标准一般是将该三部分独立分开，使其更具有模块化。但一般产生行为时，就会有结构或者表现的变化，也使这三者的界限并不那么清晰
  W3C对web标准提出了规范化的要求，也就是在实际编程中的一些代码规范：包含如下几点
  
@@ -45,7 +45,7 @@ tags:
   
   
 
-##### position 和 display 的取值和各自的意思和用法
+##### 3.position 和 display 的取值和各自的意思和用法
  
   1.position
    * position属性取值：static(默认)、relative、absolute、fixed、inherit.
@@ -104,7 +104,7 @@ tags:
     * stretch（默认值）：轴线占满整个交叉轴。
     
     
-##### px和em和rem的区别，CSS中link 和@import的区别是?
+##### 4.px和em和rem的区别，CSS中link 和@import的区别是?
   * Px是一个绝对字体大小 
   em则是基于基数（比如：1.5em）来计算出来的相对字体大小。这个基数是需要乘以当前对象从其父级遗传字体大小。 
   rem是基于根节点（比如html）的字体大小进行计算的。
