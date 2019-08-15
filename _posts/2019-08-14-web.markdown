@@ -43,7 +43,7 @@ tags:
   * 样式尽量少用行间样式表，使结构与表现分离，标签的id和class等属性命名要做到见文知义，标签越少，加载越快，用户体验提高，代码维护简单，便于改版
   * 不需要变动页面内容，便可提供打印版本而不需要复制内容，提高网站易用性。
 
- ##### position 和 display 的取值和各自的意思和用法
+ #### position 和 display 的取值和各自的意思和用法
  
   1.position
    * position属性取值：static(默认)、relative、absolute、fixed、inherit.
@@ -101,7 +101,7 @@ tags:
     * space-around：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。
     * stretch（默认值）：轴线占满整个交叉轴。
 
- ##### px和em和rem的区别，CSS中link 和@import的区别是?
+ #### px和em和rem的区别，CSS中link 和@import的区别是?
   * Px是一个绝对字体大小 
   em则是基于基数（比如：1.5em）来计算出来的相对字体大小。这个基数是需要乘以当前对象从其父级遗传字体大小。 
   rem是基于根节点（比如html）的字体大小进行计算的。
