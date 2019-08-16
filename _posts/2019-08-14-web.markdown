@@ -141,7 +141,7 @@ tags:
  2.可以设置百分数值，但这百分数值是相对于其父元素的 width属性 计算的（这一点与外边距margin一样）。 
  3.注意：上下内边距与左右内边距一致；即上下内边距的百分数会相对于父元素宽度设置，而不是相对于高度。
  
-##### 6.清除浮动，什么时候需要清除浮动，清除浮动都有哪些方法
+##### 6.如何保持浮层水平垂直居中
 
 1.利用绝对定位和transform
 ```python
@@ -238,3 +238,43 @@ CSS中有一个用于竖直居中的属性vertical-align，但只有 当父元�
 ```  
 原理：因为 parent 宽度等于 child宽度 + left + right + marginLeft + marginRight，当设置了left:0;right:0;margin: auto;时候，
 就相当于左右平分了宽度，所以会水平居中，垂直方向也是一样的道理
+
+##### 7.CSS 清除浮动，什么时候需要清除浮动，清除浮动都有哪些方法
+浮动float最开始出现的意义是为了让文字环绕图片而已，后来用于让三个块级元素并排展示，这时候就出现了浮动
+不过，由于float会导致浮动元素的父元素高度坍塌，所以，这时候就要去清除浮动
+如果我们给上面的三个绿颜色的方块设置display:inline-block也能达到让它们并排显示的效果。并且父元素的高度也不会塌陷。只不过无法控制是居左还是居右，display:inline-block只能从左往右。
+
+清除浮动的方法：
+
+(1) 在浮动元素最后增加一个冗余元素为其设置 clear:both
+
+(2) 给父元素增加 clearfix
+
+```python
+   <div class="box clearfix">
+    <div class="div"></div>
+   </div>
+   
+   .clearfix:after{
+       content: '';
+       display: table;
+       clear: both;
+   }
+```  
+(3) 给父元素增加：
+```python
+   overflow:hidden;
+   zoom:1;
+```  
+给父元素增加 overflow: hidden; 可以清除浮动的原理：
+增加后，父元素会形成一个块级格式化上下文，即BFC，overflow: hidden本意是将父元素中溢出的内容裁切掉，而BFC中，在计算父元素真实高度时候，也把float元素的高度算入其中，所以在计算裁切的同时，顺带达成了清除浮动的目的
+
+**不单单只有给父元素添加overflow:hidden才可以创建块级格式化上下文，下列方法都可以**：
+ * 浮动 (元素的 float不为 none）
+ * 绝对定位元素 (元素的 position为 absolute 或 fixed)
+ * 行内块 inline-blocks (元素的 display: inline-block)
+ * 表格单元格 (元素的 display: table-cell，HTML表格单元格默认属性)
+ * 表格标题 (元素的 display: table-caption，HTML表格标题默认属性)
+ * overflow的值不为 visible的元素
+ * 弹性盒子 flex boxes (元素的 display: flex 或 inline-flex)
+
