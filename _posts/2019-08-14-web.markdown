@@ -242,8 +242,14 @@ CSS中有一个用于竖直居中的属性vertical-align，但只有 当父元�
 ##### 7.CSS 清除浮动，什么时候需要清除浮动，清除浮动都有哪些方法
 浮动float最开始出现的意义是为了让文字环绕图片而已，后来用于让三个块级元素并排展示，这时候就出现了浮动
 不过，由于float会导致浮动元素的父元素高度坍塌，所以，这时候就要去清除浮动
-如果我们给上面的三个绿颜色的方块设置display:inline-block也能达到让它们并排显示的效果。并且父元素的高度也不会塌陷。只不过无法控制是居左还是居右，display:inline-block只能从左往右。
 
+![avatar](https://images2018.cnblogs.com/blog/1199322/201809/1199322-20180904102719073-644721731.png)
+
+父元素高度塌陷了
+
+![avatar](https://images2018.cnblogs.com/blog/1199322/201809/1199322-20180904102729908-1878738469.png)
+
+如果我们给上面的三个绿颜色的方块设置display:inline-block也能达到让它们并排显示的效果。并且父元素的高度也不会塌陷。只不过无法控制是居左还是居右，display:inline-block只能从左往右。
 清除浮动的方法：
 
 (1) 在浮动元素最后增加一个冗余元素为其设置 clear:both
@@ -278,3 +284,6 @@ CSS中有一个用于竖直居中的属性vertical-align，但只有 当父元�
  * overflow的值不为 visible的元素
  * 弹性盒子 flex boxes (元素的 display: flex 或 inline-flex)
 
+##### 8.css选择器优先级
+
+![avatar](https://upload-images.jianshu.io/upload_images/7236116-dad8a84e01d58767.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/731/format/webp.png)
