@@ -15,22 +15,17 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/_posts/2019-08-14-web.markdown">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="223">
-                <caret line="263" column="9" selection-start-line="263" selection-start-column="9" selection-end-line="263" selection-end-column="9" />
+              <first_editor relative-caret-position="357">
+                <caret line="295" lean-forward="true" selection-start-line="295" selection-end-line="295" />
               </first_editor>
               <second_editor />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/img/post-bg-universe.jpg">
-          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
     </leaf>
@@ -50,16 +45,17 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="60" />
-    <option name="y" value="23" />
-    <option name="width" value="1300" />
-    <option name="height" value="876" />
+    <option name="x" value="371" />
+    <option name="y" value="40" />
+    <option name="width" value="1436" />
+    <option name="height" value="1020" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -70,39 +66,12 @@
             <path>
               <item name="Mr.xiBlog" type="b2602c69:ProjectViewProjectNode" />
               <item name="Mr.xiBlog" type="462c0819:PsiDirectoryNode" />
-              <item name="_includes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Mr.xiBlog" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Mr.xiBlog" type="462c0819:PsiDirectoryNode" />
-              <item name="_includes" type="462c0819:PsiDirectoryNode" />
-              <item name="about" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Mr.xiBlog" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Mr.xiBlog" type="462c0819:PsiDirectoryNode" />
-              <item name="_layouts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Mr.xiBlog" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Mr.xiBlog" type="462c0819:PsiDirectoryNode" />
               <item name="_posts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Mr.xiBlog" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Mr.xiBlog" type="462c0819:PsiDirectoryNode" />
-              <item name="img" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Mr.xiBlog" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Mr.xiBlog" type="462c0819:PsiDirectoryNode" />
-              <item name="pwa" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -136,17 +105,19 @@
       <workItem from="1565586443942" duration="4048000" />
       <workItem from="1565764796563" duration="28700000" />
       <workItem from="1566104666296" duration="101000" />
-      <workItem from="1566206877708" duration="1590000" />
+      <workItem from="1566206877708" duration="2273000" />
+      <workItem from="1566807474045" duration="311000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34439000" />
+    <option name="totallyTimeSpent" value="35433000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="60" y="23" width="1300" height="876" extended-state="0" />
+    <frame x="371" y="40" width="1436" height="1020" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25230768" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22826855" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Grunt " order="3" side_tool="true" />
@@ -161,7 +132,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.21994884" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.21104972" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -318,18 +289,18 @@
     <entry file="file://$PROJECT_DIR$/img/post-bg-unix-linux.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/img/post-bg-universe.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2019-08-14-web.markdown">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="223">
-            <caret line="263" column="9" selection-start-line="263" selection-start-column="9" selection-end-line="263" selection-end-column="9" />
+          <first_editor relative-caret-position="357">
+            <caret line="295" lean-forward="true" selection-start-line="295" selection-end-line="295" />
           </first_editor>
           <second_editor />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/post-bg-universe.jpg">
-      <provider selected="true" editor-type-id="images" />
     </entry>
   </component>
 </project>
