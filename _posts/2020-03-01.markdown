@@ -15,9 +15,9 @@ tags:
 
 ## 前言
 
->在开发中数据结构和算法是必不可少的一环，目前整理基础算法，后续逐步深入。
+>记录工作中遇到的小知识点。
 
-##### 1.判断一个字符串是否为回文
+##### 1.JS中Map和ForEach的区别
  * 回文是指类似于“上海自来水来自海上”或者“madam”，从前往后和从后往前读，字符串的内容是一样的，称为回文。判断一个字符串是否是回文有很多种思路：
  1.利用Array.reverse()反转数组特性
  ```python
@@ -42,27 +42,3 @@ tags:
         console.log(isPalindRome('mada'));//false
   ```  
  
-##### 2.数组去重
- * JavaScript 中，函数及变量的声明都将被提升到函数的最顶部。
-   JavaScript 中，变量可以在使用后声明，也就是变量可以先使用再声明。
-   以下两个实例将获得相同的结果：
- 
-  ```python
-      x = 5; // 变量 x 设置为 5
-      
-      elem = document.getElementById("demo"); // 查找元素
-      elem.innerHTML = x;                     // 在元素中显示 x
-      
-      var x; // 声明 x
-  ```  
-  
-  ```python
-      var x; // 声明 x
-      x = 5; // 变量 x 设置为 5
-    
-      elem = document.getElementById("demo"); // 查找元素
-      elem.innerHTML = x; 
-  ```    
- * 对于大多数程序员来说并不知道 JavaScript 变量提升。
-   如果程序员不能很好的理解变量提升，他们写的程序就容易出现一些问题。
-   为了避免这些问题，通常我们在每个作用域开始前声明这些变量，这也是正常的 JavaScript 解析步骤，易于我们理解。   
