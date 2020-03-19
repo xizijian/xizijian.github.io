@@ -1,108 +1,50 @@
 ---
 layout:     post
-title:      "前端基础知识整理"
-subtitle:   "Front end test finishing"
-date:       2019-08-14
+title:      "Vue.js 基础知识随笔"
+subtitle:   "Vue. Basic knowledge of js essays"
+date:       2019-10-28
 author:     "Mr.Xi"
 header-img: "img/post-bg-universe.jpg"
 catalog:    true
 tags:
-    - Web
-    - Web 前端 基础知识
+    - Vue
+    - Vue.js 前端 
 ---
 
 ## 前言
 
->从没有仔细的梳理过web面试题的相关知识，希望自己在整理的同时可以对web整体框架及基础有更深一步的了解，并对如今市场的行情有足够了解，也希望自己可以时刻做一个有核心竞争力的人
+>系统的啃下Vue.js基础知识，记录下常用知识点
 
+##### 1.let、var和const的区别
+ * var 是函数级作用域，let是块级作用域  
+ * let不允许在相同作用域内，重复声明同一个变量。const声明一个只读的常量,且声明后，常量的值是不能改变的。const与let，一样不可重复声明
+ * var 有可能引起变量提升，或者块级作用域的问题。let就是为了解决以上两个问题存在的。
+ * var 有预处理机制，let没有。var属于ES5规范，let属于ES6规范
 
-### Primary interview questions(初级面试题)
-
-##### 1.HTML和XHTML的区别是什么？
- * 元素的嵌套
- 在HTML中，某些元素可以彼此不正确的嵌套。在XTHML中，所有的元素必须正确地嵌套。
- * 文档内根元素差异
- 在XHTML中元素必须被嵌套与<html>根元素中。
- * 规范性
- 在HTML中允许一些不规范的写法，但是在XHTML中是不可以的。
- * 总结：XHTML
-
-##### 2.对 WEB 标准以及 W3C 的理解与认识
- web标准简单来说可以分为结构、表现和行为。web 标准一般是将该三部分独立分开，使其更具有模块化。但一般产生行为时，就会有结构或者表现的变化，也使这三者的界限并不那么清晰
- W3C对web标准提出了规范化的要求，也就是在实际编程中的一些代码规范：包含如下几点
+##### 2.什么是变量提升
+ * JavaScript 中，函数及变量的声明都将被提升到函数的最顶部。
+   JavaScript 中，变量可以在使用后声明，也就是变量可以先使用再声明。
+   以下两个实例将获得相同的结果：
  
- 1.对于结构的要求：「标签规范可以提高搜索引擎对页面的抓取效率，对SEO很有帮助」
- 
-  * 标签字母要小写
-  * 标签要闭合
-  * 标签不允许随意嵌套
+  ```python
+      x = 5; // 变量 x 设置为 5
+      
+      elem = document.getElementById("demo"); // 查找元素
+      elem.innerHTML = x;                     // 在元素中显示 x
+      
+      var x; // 声明 x
+  ```  
   
- 2.对于css和js来说
- 
-  * 尽量使用外链css样式表和js脚本。是结构、表现和行为分为三块，符合规范。同时提高页面渲染速度，提高用户的体验。
-  * 样式尽量少用行间样式表，使结构与表现分离，标签的id和class等属性命名要做到见文知义，标签越少，加载越快，用户体验提高，代码维护简单，便于改版
-  * 不需要变动页面内容，便可提供打印版本而不需要复制内容，提高网站易用性。
-  
-  
-
-##### 3.position 和 display 的取值和各自的意思和用法
- 
-  1.position
-   * position属性取值：static(默认)、relative、absolute、fixed、inherit.
-   * postision：static；始终处于文档流给予的位置。看起来好像没有用，但它可以快速取消定位，让top，right，bottom，left的值失效。在切换的时候可以尝试这个方法。
-   * position：relative和absolute都可以用于定位，区别在于前者的div还属于正常的文档流，后者已经是脱离了正常文档流，不占据空间位置，不会将父类撑开。定位原点relative是相对于它在正常流中的默认位置偏移，它原本占据的空间任然保留；absolute相对于第一个position属性值不为static的父类。所以设置了position：absolute，其父类的该属性值要注意，而且overflow：hidden也不能乱设置，因为不属于正常文档流，不会占据父类的高度，也就不会有滚动条。
-   * position：fixed 旧版本IE不支持，定位原点相对于浏览器窗口，而且不能变。常用于header，footer，或者一些固定的悬浮div，随滚动条滚动又稳定又流畅，比JS好多了。fixed可以有很多创造性的布局和作用，兼容性是问题。
-   * position：inherit。规定从父类继承position属性的值。但是任何版本的IE都不支持该属性值。
-  
-  2.display
-   * display属性取值：none、inline、inline-block、block、flex、inherit。
-   * display属性规定元素应该生成的框的类型。文档内任何元素都是框，块框或行内框
-   * display：none和visiability：hidden都可以隐藏div，区别有点像absolute和relative，前者不占据文档的空间，后者还是占据文档的位置。
-   * display：inline和block，又叫行内元素和块级元素。表现出来的区别就是block独占一行，在浏览器中通常垂直布局，可以用margin来控制块级元素之间的间距；而inline以水平方式布局，垂直方向的margin和padding都是无效的，大小跟内容一样，且无法设置宽高。inline就像塑料袋，内容怎么样，就长得怎么样；block就像盒子，有固定的宽和高。
-   * inline-block就介于两者之间。
-   * flex 意为"弹性盒布局模型"，用来为盒状模型提供最大的灵活性。任何一个容器都可以指定为flex布局。设为Flex布局以后，子元素的float、clear和vertical-align属性将失效。采用flex布局的元素，称为flex容器。它的所有子元素自动成为容器成员，称为flex项目（flex item）。
-     
-  3.容器的属性
-  
-   1).flex-direction 决定主轴的方向
-   
-    * row(默认值):主轴为水平方向，起点在左端。
-    * row-reverse:主轴为水平方向，起点在右端。
-    * column:主轴为垂直方向，起点在上沿。
-    * column-reverse:主轴为垂直方向，起点在下沿。
-   2).flex-wrap 默认情况下，项目都排在一条线上。flex-wrap属性定义，如果一条轴线排不下，如何换行。
-   
-    * nowrap:(默认) 不换行
-    * wrap:换行，第一行在上方
-    * wrap-reverse:换行，第一行在下方
+  ```python
+      var x; // 声明 x
+      x = 5; // 变量 x 设置为 5
     
-   3).flex-flow flex-flow属性是flex-direction属性和flex-wrap属性的简写形式，默认值为row nowrap。
-   
-   4).justify-content 定义了项目在主轴上的对齐方式。假设主轴为从左到右。
-   
-    * flex-start（默认值）：左对齐
-    * flex-end：右对齐
-    * center： 居中
-    * space-between：两端对齐，项目之间的间隔都相等。
-    * space-around：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。
-    
-   5).align-items 定义项目在交叉轴上如何对齐。假设交叉轴从上到下。
-    
-    * flex-start：交叉轴的起点对齐。
-    * flex-end：交叉轴的终点对齐。
-    * center：交叉轴的中点对齐。
-    * baseline: 项目的第一行文字的基线对齐。
-    * stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。
-    
-   6). align-content   定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。
-    
-    * flex-start：与交叉轴的起点对齐。
-    * flex-end：与交叉轴的终点对齐。
-    * center：与交叉轴的中点对齐。
-    * space-between：与交叉轴两端对齐，轴线之间的间隔平均分布。
-    * space-around：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。
-    * stretch（默认值）：轴线占满整个交叉轴。
-    
+      elem = document.getElementById("demo"); // 查找元素
+      elem.innerHTML = x; 
+  ```    
+ * 对于大多数程序员来说并不知道 JavaScript 变量提升。
+   如果程序员不能很好的理解变量提升，他们写的程序就容易出现一些问题。
+   为了避免这些问题，通常我们在每个作用域开始前声明这些变量，这也是正常的 JavaScript 解析步骤，易于我们理解。   
     
 ##### 4.px和em和rem的区别，CSS中link 和@import的区别是?
   * Px是一个绝对字体大小 
