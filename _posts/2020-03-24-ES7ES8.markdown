@@ -4,7 +4,7 @@ title:      "ES7及ES8新特性"
 subtitle:   "ES7 and ES8 new features"
 date:       2020-03-24
 author:     "Mr.Xi"
-header-img: "img/post-bg-universe.jpg"
+header-img: "img/post-bg-2015.jpg"
 catalog:    true
 tags:
     - ES
@@ -383,19 +383,16 @@ ES8引入了async函数，使得异步操作变得更加方便。简单说来，
 异步函数存在以下四种使用形式：
 
 * 函数声明
-
 ```python
    async function foo() {}
 ```
 
 * 函数表达式
-
 ```python
    const foo = async function() {}
 ```
 
 * 对象的方式
-
 ```python
    let obj = { 
        async foo() {} 
@@ -403,7 +400,6 @@ ES8引入了async函数，使得异步操作变得更加方便。简单说来，
 ```
 
  * 箭头函数
-
 ```python
    const foo = async () => {}
 ```
