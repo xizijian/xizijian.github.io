@@ -1,19 +1,19 @@
 ---
 layout:     post
-title:      "Vue.js 基础知识随笔"
+title:      "前端基础知识随笔"
 subtitle:   "Vue. Basic knowledge of js essays"
 date:       2019-10-28
 author:     "Mr.Xi"
 header-img: "img/post-bg-universe.jpg"
 catalog:    true
 tags:
-    - Vue
+    - JS
     - Vue.js 前端 
 ---
 
 ## 前言
 
->系统的啃下Vue.js基础知识，记录下常用知识点
+>系统的啃前端基础知识，记录下常用知识点
 
 ##### 1.let、var和const的区别
  * var 是函数级作用域，let是块级作用域  
